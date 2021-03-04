@@ -1,0 +1,153 @@
+
+->git --version                                       --to know the whether git is installed and to know the version of  the git
+
+
+->git config --global user.name balajisaikumar             --entering our credentials will let the other members to know who commit the changes and who merged files together etc.,
+
+->git config --global user.email balajisaikumar3@outlook.com
+
+->git config user.name                                --will give present username and email 
+->git config user.email
+
+-> git config --help                                  --if we want any help in any action we can do like this
+
+->git init                                            --intializes the folder or local repo                   
+
+->git status
+
+->git add <filename>                                  --will add files to the stagging area(ex:-git add index.html)
+
+->git add .                                           --will add files in that folder to the stagging area
+
+->git add -A                                          --will add all files in that repository
+
+->git rm --cached <filename>                          --if we mistakenly staged something then we can use this command to unstage that
+->git reset <filename>                                --this works same as above
+->git reset                                           --will remove all files in stagging area
+
+->git commit -m "i have changed something message"    --it will record the changes we have done to the folder upto there
+
+->git status                                          --returns current working branch,and if a file is in the staging area,but not committed,it showss with gt status
+
+->git log                                             --will show the commits that we have done to the repository that we are in and this command will give the id's of the commits and along with that where does the commit come from,like it will give us the username and email of the user 
+
+->git log --oneline                                   --will show only all commit messages and there commit id's
+
+undoing the changes:-
+
+->git commit --amend -m "new commit message"          --if we mistakenly commited with wrong message ,by doing this command we can edit that commit message with new message,it will automatically  change the last commit message
+
+->git commit --amend                                  --suppose we have a file that was in stagging area,and we want it to be in the previous commit ,by doing this command it will amend the file to the last commit 
+
+-> git log --stat                                     --will display the files that were changed within the commit 
+
+->git cherry-pick <commit id>                         --will copy down the commit from master and paste it in the branch where we run this command
+
+->git checkout <commit id>                            --will get back us to that commit and we will have only that code 
+  
+->git checkout <branch name>                          --we will be directed to the specified branch    
+
+->git revert <commit id>                              --it will add a new commit in which we can chechkout there with the commit id it created for us and when we checkout that .The commit changes  which we want to revert will no longer appear there 
+
+->git reset --soft <commit id>                        --will get us back to the mentioned commit id ,but files are in stagged area
+
+->git reset <commit id>                               --it will get us back to the commit id but the changes we have made will still available on our editor/folder and if we do like this "->git status " there are previous  files that we do not want to in our folder are  in unstaged area
+
+->git reset <commit id> --hard                        --it will permanenty delete the files there will be no files in staged area .but this is not recommended
+ 
+->git clean -df                                       --to get rid off untracked files
+
+->git reflog                                          --will save all our changes ,whether deleted one,checkouts ,new branches all things 
+ 
+ branching:- 
+
+->git branch <branch name>                            --will create a branch
+
+->git branch -a                                       --will list all branches in our repo
+
+->git checkout <branch name>                           --will enter the specified branch name
+
+->git checkout -b <branch name>                        --will create branch and will checkout to that branch 
+
+->git branch -d <branch name>                          --will delete the branch (NOTE:will give ERROR if there are unmerged changes)
+
+->git branch -D <branch name>                          --will delete the branch (it won't give error if there are unmerged changes it will delete all of them) 
+
+merge:-
+
+->git branch --merged                                  --will show the branches that we merged so far
+
+->git merge <branch name>                              --we should be on a branch then only this will satisfy and will merge with other branch
+
+push to remote repo:-
+
+->git push <url of remote repo>                          --it will push our local repo code to remote repository(common repository which is present on online)
+
+->git remote add origin <url of the remote repo>         --here we are adding a remote repo and assigning an alias as 'origin' .means,now onwards the we donot want to mention the url of the repo cause,we are assigning it to the name origin
+
+->git push origin master                                 --we are pushing it to the origin(remore repo) and into master branch
+
+cloning:-
+
+->git clone <url of the remote repo>                     --to get the all code in the remote repo ,we can use clone option .it will create a folder in our local computer with name of the remote repository.we can then do our things with that and can again push to the remote repo
+
+-> git commit -m "xxxxxxx"                               --commit message
+
+->git diff                                               --display all changes that we did to the clone repository
+
+->git remote -v                                          --will tell what we can do with the clone in our local space
+
+->git pull origin master                                 --it will copy down all of the changes in master branch of remote repository
+
+->git push origin master                                 --will push all commits back to the remote repository
+
+->git fetch origin master                                --same as pull but fetch didn't copy the changes instead it tells what changes happened like(commits were added like that)
+rebase:-
+
+git rebase master
+
+git rebase <branch name>
+
+
+stash:-
+
+git checkout -b <branch name>                         --we have to on a branch whether it can be master also
+
+git stash save "stash name or message"                --will save the new changes as stash and after this they will disappear from that branch 
+
+git stash list                                        --will give all stash list and along with that the message we kept there,they will have id's to select them                  
+
+git stash apply                                       --will apply the changes to the master or branch but stash will still in the list
+
+git stash pop                                         --will apply the changes of the last stash  to the master ,and stash will be deleted
+
+git stash drop <stash id>                             --to drop an specific stash 
+
+git stash clear                                       --will clear all stashes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
